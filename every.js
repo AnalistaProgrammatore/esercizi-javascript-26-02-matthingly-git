@@ -1,23 +1,20 @@
 //EVERYBASE
-function everyBase(array, callBackF) {
-  return callBackF(array)
-}
-
-function even(array) {
-  let result = null;
+function everyBase(arr, callback) {
+  let result = false;
   let newArray = [];
-  for (let i = 0; i <= array.length; i++) {
-    if (array[i] % 2 === 0) {
-      newArray.push(array[i])
+  for (let i = 0; i < arr.length; i++) {
+    const result = callback(arr[i])
+    if (result) {
+      newArray.push(arr[i])
     }
   }
-  if (newArray.length === array.length) {
+  if (newArray.length === arr.length) {
     result = true
   }
-  return result;
+  return result
 }
 
-let arrayProva = [2, 4];
+let arrayProva = [45, 6];
+const myCallback = x => x > 15
 
-
-console.log(everyBase(arrayProva, even))
+console.log(everyBase(arrayProva, myCallback))
